@@ -21,6 +21,15 @@ Address.prototype.fullAddress = function () {
   return this.street + ", " + this.city + ", " + this.state;
 };
 
+//Blank out the form fields after the submit button is hit
+function resetFields() {
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input.new-street").val("");
+    $("input.new-city").val("");
+    $("input.new-state").val("");
+}
+
 //USER INTERFACE
 $(document).ready(function(){
   // Click Listener for Another Address
@@ -61,14 +70,10 @@ $(document).ready(function(){
         //Insert address details from the new object
         $("ul#addresses").text("");
         newContact.addresses.forEach(function(address) {
-          $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+          $("ul#addresses").append("<li>" + address.fullAddress()+ "</li>");
         });
       });
-    //Blank out the form fields after the submit button is hit
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-street").val("");
-    $("input#new-city").val("");
-    $("input#new-state").val("");
+
+    resetFields();
   });
 });
