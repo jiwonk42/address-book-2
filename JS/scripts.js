@@ -14,8 +14,9 @@ $(document).ready(function(){
     $("form#new-contact").submit(function(event){
       event.preventDefault();
 
+      
 
-
+      //Create object address within object newContact
       $(".new-address").each(function() {
         var inputtedStreet = $(this).find("input.new-street").val();
         var inputtedCity = $(this).find("input.newcity").val();
@@ -23,6 +24,12 @@ $(document).ready(function(){
         var newAdress = new Address(inputtedStreet,inputtedCity,inputtedState);
         newContact.addresses.push(newAdress);
       });
+
+    //Insert address details from the new object
+    $("ul#addresses").text("");
+    newContact.addresses.forEach(function(address) {
+      $("ul#addresses").append("<li>" + address.street + "," + address.city + "," + address.state + "</li>");
+    })
 
   });
 });
