@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="CSS/styles.css" rel="stylesheet" type="text/css">
-    <script src="JS/jquery-3.1.1.js"></script>
-    <script src="JS/scripts.js"></script>
-    <meta charset="utf-8">
-    <title>Address Book</title>
-  </head>
-  <body>
-<div class="container">
-  <h1>Address Book</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Add a contact:</h2>
-      <form id="new-contact">
-        <div class="form-group">
-          <label for="new-first-name">First Name</label>
-          <input type="text" class="form-control" id="new-first-name">
-        </div>
-        <div class="form-group">
-          <label for="new-last-name">Last Name</label>
-          <input type="text" class="form-control" id="new-last-name">
-        </div>
+<head>
+  <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="CSS/styles.css" rel="stylesheet" type="text/css">
+  <script src="JS/jquery-3.1.1.js"></script>
+  <script src="JS/scripts.js"></script>
+  <meta charset="utf-8">
+  <title>Address Book</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Address Book</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Add a contact:</h2>
+        <form id="new-contact">
+          <div class="form-group">
+            <label for="new-first-name">First Name</label>
+            <input type="text" class="form-control" id="new-first-name">
+          </div>
+          <div class="form-group">
+            <label for="new-last-name">Last Name</label>
+            <input type="text" class="form-control" id="new-last-name">
+          </div>
 
-        <div id="new-address">
-          <div class="new-address">
-            <div class="form-group">
-              <label for="new-street">Street</label>
-              <input type="text" class="form-control new-street">
-            </div>
-            <div class="form-group">
-              <label for="new-city">City</label>
-              <input type="text" class="form-control new-city">
-            </div>
-            <div class="form-group">
-              <label for="new-state">State</label>
-              <input type="text" class="form-control new-state">
+          <div id="new-address">
+            <div class="new-address">
+              <div class="form-group">
+                <label for="new-street">Street</label>
+                <input type="text" class="form-control new-street">
+              </div>
+              <div class="form-group">
+                <label for="new-city">City</label>
+                <input type="text" class="form-control new-city">
+              </div>
+              <div class="form-group">
+                <label for="new-state">State</label>
+                <input type="text" class="form-control new-state">
+              </div>
             </div>
           </div>
+
+          <span class="btn btn-primary" id="add-address">Another address</span>
+
+          <button type="submit" class="btn">Add</button>
+        </form>
+
+        <h2>Contacts:</h2>
+        <ul id="contacts"></ul>
+      </div>
+
+      <div class="col-md-6">
+        <div id="show-contact">
+          <h2></h2>
+          <p>First name: <span class="first-name"></span></p>
+          <p>Last name: <span class="last-name"></span></p>
+          <p>Adresses</p>
+          <ul id="addresses"></ul>
         </div>
+      </div>
 
-        <span class="btn btn-primary" id="add-address">Another address</span>
-
-        <button type="submit" class="btn">Add</button>
-      </form>
     </div>
-  </div>
 
-</div>
-  </body>
+  </div>
+</body>
 </html>
