@@ -14,7 +14,11 @@ $(document).ready(function(){
     $("form#new-contact").submit(function(event){
       event.preventDefault();
 
-      
+      //Create object newContact with first and last name elements
+      var inputtedFirstName = $("input#new-first-name").val();
+      var inputtedLastName =
+      $("input#new-last-name").val();
+      var newContact = new Contact (inputtedFirstName,inputtedLastName);
 
       //Create object address within object newContact
       $(".new-address").each(function() {
@@ -25,11 +29,26 @@ $(document).ready(function(){
         newContact.addresses.push(newAdress);
       });
 
-    //Insert address details from the new object
-    $("ul#addresses").text("");
-    newContact.addresses.forEach(function(address) {
-      $("ul#addresses").append("<li>" + address.street + "," + address.city + "," + address.state + "</li>");
-    })
+      // Insert Name Information
+      $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
+      // Click Listener for New Contact
+      $(".contact").last().click(function() {
+        $("#show-contact").show();
+        $("#show-contact h2").text(newContact.fullName());
+        $(".first-name").text(newContact.firstName);
+        $(".last-name").text(newContact.lastName);
+        //Insert address details from the new object
+        $("ul#addresses").text("");
+        newContact.addresses.forEach(function(address) {
+          $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+        });
+      });
+    //Blank out the form fields after the submit button is hit
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input#new-street").val("");
+    $("input#new-city").val("");
+    $("input#new-state").val("");
   });
 });
